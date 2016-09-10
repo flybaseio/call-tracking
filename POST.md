@@ -70,7 +70,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({	extended: true	}));
 app.use(express.static( path.join(__dirname, 'public')));
- 
+
 var port = process.env.PORT || 5000; // set our port
 
 var flybaseRef = flybase.init('YOUR-FLYBASE-APP-NAME', "calltracking", 'YOUR-FLYBASE-API-KEY');
@@ -79,6 +79,7 @@ var flybaseRef = flybase.init('YOUR-FLYBASE-APP-NAME', "calltracking", 'YOUR-FLY
 
 app.post('/call', function(req, res) {
 	flybaseRef.push({
+		time: Date.now()/1000,
 		number: req.body.To,
 		city: req.body.FromCity
 	}).then( function( rec ){
@@ -106,8 +107,8 @@ function setCustomCacheControl(res, path) {
 
 app.use(compression());
 
-app.use(serveStatic(__dirname + '/dashboard', { 
-	maxAge: '1d', 
+app.use(serveStatic(__dirname + '/dashboard', {
+	maxAge: '1d',
 	setHeaders: setCustomCacheControl,
 	'index': ['index.html'],
 	fallthrough: true
@@ -248,7 +249,7 @@ Now, create a file inside the `dashboard` folder called `index.html`:
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.10/d3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/epoch/0.5.2/epoch.min.js"></script>
-	<script src="https://cdn.flybase.io/flybase.js"></script>	
+	<script src="https://cdn.flybase.io/flybase.js"></script>
 	<script src="dashboard.js"></script>
 </body>
 </html>
@@ -283,16 +284,17 @@ $( function() {
 
 	function updateStats( data ){
 		//	process the new data...
-		calls.push( [ { time: Date.now()/1000, y: data.count() } ] );
-
 		data.forEach( function( snapshot ){
 			var row = snapshot.value();
+
+			calls.push( [ { time: row.time, y: 1 } ] );
+
 			var cityCount = stats.cities[ row.city ] || 0;
 			stats.cities[ row.city ] = ++cityCount;
 
 			var numberCount = stats.numbers[ row.number ] || 0;
 			stats.numbers[ row.number ] = ++numberCount;
-		});	
+		});
 
 		var citiesData = [];
 		for( var city in stats.cities ) {

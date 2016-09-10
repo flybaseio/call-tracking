@@ -22,6 +22,7 @@ var flybaseRef = flybase.init('YOUR-FLYBASE-APP-NAME', "calltracking", 'YOUR-FLY
 
 app.post('/call', function(req, res) {
 	flybaseRef.push({
+		time: Date.now()/1000,
 		number: req.body.To,
 		city: req.body.FromCity
 	}).then( function( rec ){

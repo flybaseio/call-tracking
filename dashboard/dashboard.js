@@ -21,11 +21,11 @@ $( function() {
 	});
 
 	function updateStats( data ){
-		//	process the new data...
-		calls.push( [ { time: Date.now()/1000, y: data.count() } ] );
-
 		data.forEach( function( snapshot ){
 			var row = snapshot.value();
+
+			calls.push( [ { time: row.time, y: 1 } ] );
+
 			var cityCount = stats.cities[ row.city ] || 0;
 			stats.cities[ row.city ] = ++cityCount;
 
