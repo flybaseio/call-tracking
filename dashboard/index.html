@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Call Tracking On the Fly</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/epoch/0.5.2/epoch.min.css" rel="stylesheet" />
+		<link href="dashboard.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="navbar-nav navbar-inverse navbar-fixed-top">
+				<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">
+						Call Tracking Dashboard
+					</a>
+				</div>
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active">
+								<!-- <a href="index.html">
+									<i class="icon-home icon-white"></i> Home
+								</a> -->
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+		</div>
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-12 col-lg-12">
+					<article class="widget">
+						<div class="widget-inner">
+
+							<header>
+								<h1>Calls</h1>
+							</header>
+
+							<section class="widget-body">
+								<div id="calls" class="epoch" style="height: 200px;"></div>
+							</section>
+
+						</div><!-- .widget-inner -->
+
+					</article>
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm-6 col-lg-6">
+					<article class="widget">
+						<div class="widget-inner">
+
+							<header>
+								<h1>Incoming Number</h1>
+							</header>
+
+							<section class="widget-body">
+								<div id="numbers" class="epoch" style="height: 200px;"></div>
+							</section>
+
+						</div><!-- .widget-inner -->
+
+					</article>
+				</div>
+
+				<div class="col-sm-6 col-lg-6">
+					<article class="widget">
+						<div class="widget-inner">
+
+							<header>
+								<h1>City</h1>
+							</header>
+
+							<section class="widget-body">
+								<div id="cities" class="epoch" style="height: 200px;"></div>
+							</section>
+
+						</div><!-- .widget-inner -->
+
+					</article>
+				</div>
+			</div>
+
+		</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.10/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/epoch/0.5.2/epoch.min.js"></script>
+	<script src="https://cdn.flybase.io/flybase.js"></script>	
+	<script src="dashboard.js"></script>
+</body>
+</html>

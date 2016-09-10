@@ -1,0 +1,30 @@
+{
+  "name": "call-tracking",
+  "version": "1.0.0",
+  "description": "Example app demonstrating how to do call tracking with Twilio and Flybase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flybaseio/call-tracking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flybaseio/call-tracking/issues"
+  },
+  "homepage": "https://github.com/flybaseio/call-tracking#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "flybase": "^1.7.8",
+    "method-override": "^2.3.6",
+    "serve-static": "^1.11.1",
+    "twilio": "^2.10.0"
+  }
+}
